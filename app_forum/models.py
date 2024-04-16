@@ -66,6 +66,11 @@ class Topic(models.Model):
 
     def __str__(self):
         return self.subject
+    
+    def get_summary(self, length=200):
+        if len(self.content) > length:
+            return self.content[:length] + "..."
+        return self.content
 
 
 

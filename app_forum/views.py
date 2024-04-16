@@ -43,7 +43,7 @@ class LogoutView(View):
         return redirect('login')
 
 
-# View para realizar o cadastro de um novo usuário
+
 class RegisterView(FormView):
     template_name = 'register.html'
     form_class = UserRegistrationForm
@@ -132,7 +132,7 @@ class EditProfileView(UpdateView):
 
 
 
-# View para criar um novo tópico
+
 @method_decorator(login_required(login_url='/login/'), name='dispatch')
 class CreateTopicView(CreateView):
     model = Topic
