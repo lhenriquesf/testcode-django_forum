@@ -1,0 +1,7 @@
+**/.venv/
+**/*.db
+#**/*.txt
+**/*.csv
+**/*.dockerignore
+**/*Dockerfile
+**/*.toml
