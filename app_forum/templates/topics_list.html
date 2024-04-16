@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Lista de Tópicos</h2>
+
+<!-- Botão para criação de tópicos -->
+<a href="{% url 'create_topic' %}" class="create-topic-button">Criar Novo Tópico</a>
+
+<ul>
+    {% for topic in topics %}
+        <li>
+            <a href="{% url 'topic_detail' topic.pk %}">{{ topic.subject }}</a> por {{ topic.author.first_name }} {{ topic.author.last_name }} em {{ topic.post_date }}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

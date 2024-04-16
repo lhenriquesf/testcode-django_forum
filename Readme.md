@@ -1,5 +1,5 @@
 *Admin criado:*
-    login: admin@testcodeforum.com
+    login: admin@testcode.com
     senha: User@123
 
 *Usuários:*

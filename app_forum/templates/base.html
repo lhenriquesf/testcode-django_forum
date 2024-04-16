@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Fórum - Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!--Header content-->
+    {% include 'partials/_header.html' %}
+
+    <main>{% block content %} {% endblock %}</main>
+
+    <!--Footer content-->
+    {% include 'partials/_footer.html' %}
+    </body>
+</body>
+</html>

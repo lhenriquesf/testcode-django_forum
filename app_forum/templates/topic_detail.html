@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ topic.subject }}</h2>
+    <p>Por {{ topic.author.first_name }} {{ topic.author.last_name }} em {{ topic.post_date }}</p>
+    <h4>Categoria: {{ category.title }}</h4>
+    <p>{{ topic.content }}</p>
+
+    <!-- Botão para excluir o tópico (apenas para administradores) -->
+    {% if user.is_staff %}
+        <form method="post" action="{% url 'delete_topic' topic.id %}">
+            {% csrf_token %}
+            <button type="submit" class="delete-topic-button">Excluir Tópico</button>
+        </form>
+    {% endif %}
+
+    <h3>Comentários</h3>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                <strong>{{ comment.author.first_name }}</strong>: {{ comment.content }}
+                <!-- Botão para excluir comentário (apenas para administradores) -->
+                {% if user.is_staff %}
+                    <form method="POST" action="{% url 'delete_comment' comment.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="delete-topic-button">Excluir Comentário</button>
+                    </form>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Adicionar Comentário</h3>
+    <form method="POST" action="{% url 'add_comment' topic.pk %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Adicionar Comentário</button>
+    </form>
+</div>
+{% endblock %}
