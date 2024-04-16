@@ -9,11 +9,11 @@
 
 *Caso for baixar o código fonte:*
     Ativar venv:
-        python -m venv .venv
-        .venv\Scripts\Activate
+        pipenv shell
+
 
     Para instalar as dependências:
-        pip install -r requirements.txt
+        pipenv install
 
     python manage.py runserver #Criar o DB
     python manage.py makemigrations 
