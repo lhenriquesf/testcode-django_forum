@@ -8,14 +8,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.utils.decorators import method_decorator
 from .models import CustomUser, Topic, Comment
 from django.contrib.auth.forms import PasswordChangeForm
-from .forms import (
-    UserRegistrationForm,
-    UserLoginForm,
-    TopicForm,
-    CommentForm,
-    EditProfileForm
-)
-
+from .forms import *
 
 class LoginView(FormView):
     template_name = 'login.html'
